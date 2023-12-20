@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --theme-rounded-base: "8px";
+  --theme-rounded-container: "8px";
+  --theme-border-base: "1px";
+}
+body {
+  @apply bg-surface-50-900-token;
+}
+::selection {
+  @apply bg-gray-400 text-gray-800;
+}
