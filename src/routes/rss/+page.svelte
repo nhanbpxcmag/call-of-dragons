@@ -105,22 +105,22 @@
     total_go = 0,
     total_quang = 0,
     total_nuoc = 0;
-  $: {
-    if (browser) {
-      if (localStorage.getItem("value_vang_rss")) {
-        value_vang = JSON.parse(localStorage.getItem("value_vang_rss") || "");
-      }
-      if (localStorage.getItem("value_go_rss")) {
-        value_go = JSON.parse(localStorage.getItem("value_go_rss") || "");
-      }
-      if (localStorage.getItem("value_quang_rss")) {
-        value_quang = JSON.parse(localStorage.getItem("value_quang_rss") || "");
-      }
-      if (localStorage.getItem("value_nuoc_rss")) {
-        value_nuoc = JSON.parse(localStorage.getItem("value_nuoc_rss") || "");
-      }
-    }
-  }
+  //   $: {
+  //     if (browser) {
+  //       if (localStorage.getItem("value_vang_rss")) {
+  //         value_vang = JSON.parse(localStorage.getItem("value_vang_rss") || "");
+  //       }
+  //       if (localStorage.getItem("value_go_rss")) {
+  //         value_go = JSON.parse(localStorage.getItem("value_go_rss") || "");
+  //       }
+  //       if (localStorage.getItem("value_quang_rss")) {
+  //         value_quang = JSON.parse(localStorage.getItem("value_quang_rss") || "");
+  //       }
+  //       if (localStorage.getItem("value_nuoc_rss")) {
+  //         value_nuoc = JSON.parse(localStorage.getItem("value_nuoc_rss") || "");
+  //       }
+  //     }
+  //   }
   $: {
     total_vang = 0;
     localStorage.setItem("value_vang_rss", JSON.stringify(value_vang));

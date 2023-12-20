@@ -72,15 +72,15 @@
     lc_training: any,
     calc_kq = { sl: 0, lc: 0 },
     lay_Universal = 1;
-  $: {
-    if (browser) {
-      value_building = JSON.parse(localStorage.getItem("value_building") || "");
-      value_Training = JSON.parse(localStorage.getItem("value_Training") || "");
-      value_Research = JSON.parse(localStorage.getItem("value_Research") || "");
-      value_Universal = JSON.parse(localStorage.getItem("value_Universal") || "");
-      value_Universal_more = JSON.parse(localStorage.getItem("value_Universal_more") || "");
-    }
-  }
+  // $: {
+  // if (browser) {
+  //   value_building = JSON.parse(localStorage.getItem("value_building") || "");
+  //   value_Training = JSON.parse(localStorage.getItem("value_Training") || "");
+  //   value_Research = JSON.parse(localStorage.getItem("value_Research") || "");
+  //   value_Universal = JSON.parse(localStorage.getItem("value_Universal") || "");
+  //   value_Universal_more = JSON.parse(localStorage.getItem("value_Universal_more") || "");
+  // }
+  // }
   $: {
     total_building = 0;
     localStorage.setItem("value_building", JSON.stringify(value_building));
