@@ -1,7 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { RadioGroup, RadioItem, getToastStore } from "@skeletonlabs/skeleton";
-  import type { ToastSettings, ToastStore } from "@skeletonlabs/skeleton";
+  import { getToastStore } from "@skeletonlabs/skeleton";
+  import { keys } from "lodash";
+  import { getStorage } from "../+layout.svelte";
   const toastStore = getToastStore();
   let list = [
     {
@@ -33,6 +34,7 @@
       time: 1000 * 5000,
     },
   ];
+  let keys_list = keys(list);
   let list_quang = [
     {
       title: "750",
@@ -63,6 +65,7 @@
       time: 3750000,
     },
   ];
+  let keys_list_quang = keys(list_quang);
   let list_nuoc = [
     {
       title: "500",
@@ -93,6 +96,7 @@
       time: 2000000,
     },
   ];
+  let keys_list_nuoc = keys(list_nuoc);
   let value_vang: any = {},
     value_go: any = {},
     value_quang: any = {},
@@ -105,22 +109,15 @@
     total_go = 0,
     total_quang = 0,
     total_nuoc = 0;
-  //   $: {
-  //     if (browser) {
-  //       if (localStorage.getItem("value_vang_rss")) {
-  //         value_vang = JSON.parse(localStorage.getItem("value_vang_rss") || "");
-  //       }
-  //       if (localStorage.getItem("value_go_rss")) {
-  //         value_go = JSON.parse(localStorage.getItem("value_go_rss") || "");
-  //       }
-  //       if (localStorage.getItem("value_quang_rss")) {
-  //         value_quang = JSON.parse(localStorage.getItem("value_quang_rss") || "");
-  //       }
-  //       if (localStorage.getItem("value_nuoc_rss")) {
-  //         value_nuoc = JSON.parse(localStorage.getItem("value_nuoc_rss") || "");
-  //       }
-  //     }
-  //   }
+  $: {
+    if (browser) {
+      value_vang = getStorage("value_vang_rss", keys_list);
+      value_go = getStorage("value_go_rss", keys_list);
+      value_quang = getStorage("value_quang_rss", keys_list_quang);
+      value_nuoc = getStorage("value_nuoc_rss", keys_list_nuoc);
+    }
+  }
+
   $: {
     total_vang = 0;
     localStorage.setItem("value_vang_rss", JSON.stringify(value_vang));

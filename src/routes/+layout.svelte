@@ -1,3 +1,23 @@
+<script context="module" lang="ts">
+  export function getStorage(name: string, keys: any) {
+    const kq: any = {};
+    const s = localStorage.getItem(name);
+    if (s) {
+      const j = JSON.parse(s);
+      if (isPlainObject(j)) {
+        for (const key in j) {
+          if (Object.prototype.hasOwnProperty.call(j, key)) {
+            if (keys.indexOf(key) > -1) {
+              kq[key] = j[key];
+            }
+          }
+        }
+      }
+    }
+    return kq;
+  }
+</script>
+
 <script lang="ts">
   import { page } from "$app/stores";
   import "../styles/app.scss";
@@ -5,6 +25,7 @@
   import Fa from "svelte-fa";
   import { faCaretDown, faCaretUp, faClock, faCoins, faHouse } from "@fortawesome/free-solid-svg-icons";
   import { initializeStores, Toast } from "@skeletonlabs/skeleton";
+  import { isPlainObject } from "lodash";
 
   initializeStores();
 </script>

@@ -2,6 +2,8 @@
   import { browser } from "$app/environment";
   import { RadioGroup, RadioItem, getToastStore } from "@skeletonlabs/skeleton";
   import type { ToastSettings, ToastStore } from "@skeletonlabs/skeleton";
+  import { keys } from "lodash";
+  import { getStorage } from "../+layout.svelte";
   const toastStore = getToastStore();
   let list = [
     {
@@ -41,6 +43,7 @@
       time: 60 * 60 * 15,
     },
   ];
+  let keys_list = keys(list);
   let list_Universal = [
     {
       title: "24h",
@@ -59,6 +62,7 @@
       time: 60 * 60 * 24 * 30,
     },
   ];
+  let keys_list_Universal = keys(list_Universal);
   let value_building: any = {},
     value_Training: any = {},
     value_Research: any = {},
@@ -72,15 +76,15 @@
     lc_training: any,
     calc_kq = { sl: 0, lc: 0 },
     lay_Universal = 1;
-  // $: {
-  // if (browser) {
-  //   value_building = JSON.parse(localStorage.getItem("value_building") || "");
-  //   value_Training = JSON.parse(localStorage.getItem("value_Training") || "");
-  //   value_Research = JSON.parse(localStorage.getItem("value_Research") || "");
-  //   value_Universal = JSON.parse(localStorage.getItem("value_Universal") || "");
-  //   value_Universal_more = JSON.parse(localStorage.getItem("value_Universal_more") || "");
-  // }
-  // }
+  $: {
+    if (browser) {
+      value_building = getStorage("value_building", keys_list);
+      value_Training = getStorage("value_Training", keys_list);
+      value_Research = getStorage("value_Research", keys_list);
+      value_Universal = getStorage("value_Universal", keys_list);
+      value_Universal_more = getStorage("value_Universal_more", keys_list_Universal);
+    }
+  }
   $: {
     total_building = 0;
     localStorage.setItem("value_building", JSON.stringify(value_building));
@@ -150,6 +154,16 @@
 
     return hours + "h " + minutes + "m";
   }
+  function secondToDDHHMM(totalSeconds: number) {
+    var fm = [
+      Math.floor(totalSeconds / 60 / 60 / 24), // DAYS
+      Math.floor(totalSeconds / 60 / 60) % 24, // HOURS
+      Math.floor(totalSeconds / 60) % 60, // MINUTES
+      totalSeconds % 60, // SECONDS
+    ];
+
+    return `${fm[0]}d ${fm[1]}h ${fm[2]}min`;
+  }
   function calc_training() {
     calc_kq = { sl: 0, lc: 0 };
     if (!second_training) {
@@ -177,12 +191,14 @@
       {/each}
       <div class="mt-2">
         <div>
-          <div>Tổng:</div>
+          <div class="font-bold text-primary-500">Tổng:</div>
           <div>- {Math.floor(total_building / 60)} min</div>
-          <div>- {secondToHHMM(total_building)}</div>
-          <div>Tổng (Universal):</div>
+          <!-- <div>- {secondToHHMM(total_building)}</div> -->
+          <div>- {secondToDDHHMM(total_building)}</div>
+          <div class="font-bold text-primary-500">Tổng (Universal):</div>
           <div>- {Math.floor((total_building + total_Universal) / 60)} min</div>
-          <div>- {secondToHHMM(total_building + total_Universal)}</div>
+          <!-- <div>- {secondToHHMM(total_building + total_Universal)}</div> -->
+          <div>- {secondToDDHHMM(total_building + total_Universal)}</div>
         </div>
       </div>
     </div>
@@ -196,12 +212,14 @@
       {/each}
       <div class="mt-2">
         <div>
-          <div>Tổng:</div>
+          <div class="font-bold text-primary-500">Tổng:</div>
           <div>- {Math.floor(total_Training / 60)} min</div>
-          <div>- {secondToHHMM(total_Training)}</div>
-          <div>Tổng (Universal):</div>
+          <!-- <div>- {secondToHHMM(total_Training)}</div> -->
+          <div>- {secondToDDHHMM(total_Training)}</div>
+          <div class="font-bold text-primary-500">Tổng (Universal):</div>
           <div>- {Math.floor((total_Training + total_Universal) / 60)} min</div>
-          <div>- {secondToHHMM(total_Training + total_Universal)}</div>
+          <!-- <div>- {secondToHHMM(total_Training + total_Universal)}</div> -->
+          <div>- {secondToDDHHMM(total_Training + total_Universal)}</div>
         </div>
       </div>
     </div>
@@ -215,12 +233,14 @@
       {/each}
       <div class="mt-2">
         <div>
-          <div>Tổng:</div>
+          <div class="font-bold text-primary-500">Tổng:</div>
           <div>- {Math.floor(total_Research / 60)} min</div>
-          <div>- {secondToHHMM(total_Research)}</div>
-          <div>Tổng (Universal):</div>
+          <!-- <div>- {secondToHHMM(total_Research)}</div> -->
+          <div>- {secondToDDHHMM(total_Research)}</div>
+          <div class="font-bold text-primary-500">Tổng (Universal):</div>
           <div>- {Math.floor((total_Research + total_Universal) / 60)} min</div>
-          <div>- {secondToHHMM(total_Research + total_Universal)}</div>
+          <!-- <div>- {secondToHHMM(total_Research + total_Universal)}</div> -->
+          <div>- {secondToDDHHMM(total_Research + total_Universal)}</div>
         </div>
       </div>
     </div>
@@ -240,9 +260,10 @@
       {/each}
       <div class="mt-2">
         <div>
-          <div>Tổng:</div>
+          <div class="font-bold text-primary-500">Tổng:</div>
           <div>- {Math.floor(total_Universal / 60)} min</div>
-          <div>- {secondToHHMM(total_Universal)}</div>
+          <!-- <div>- {secondToHHMM(total_Universal)}</div> -->
+          <div>- {secondToDDHHMM(total_Universal)}</div>
         </div>
       </div>
     </div>
