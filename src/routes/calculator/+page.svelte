@@ -83,16 +83,10 @@
     let tyle_tru = 100 - num_buff_san - num_buff_tru;
     let to_seconds = time.ngay * 24 * 60 * 60 + time.gio * 60 * 60 + time.phut * 60 + time.giay;
     let tong_seconds_da_tru = Math.round((to_seconds * 100) / tyle_san); //thời gian không tính bất kỳ buff nào
-    console.log("🚀 --- file: +page.svelte:86 --- calculator --- tong_seconds_da_tru:", {
-      tong_seconds_da_tru,
-      to_seconds,
-    });
     let _phantram = Math.round(((tong_seconds_da_tru - to_seconds) * num_buff_tru) / 100);
-    console.log("🚀 --- file: +page.svelte:91 --- calculator --- _phantram:", _phantram);
     let kq_seconds = Math.round(to_seconds - _phantram); // thời gian tính buff sẵn + buff đá
     tg_truoc_giam = secondToDDHHMMSS(to_seconds);
     kq = secondToDDHHMMSS(kq_seconds);
-    console.log("🚀 --- file: +page.svelte:90 --- calculator --- kq:", kq_seconds);
     if (num_help > 0) {
       let temp = kq_seconds;
       let tong_seconds_help = 0;
