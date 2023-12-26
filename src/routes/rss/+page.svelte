@@ -187,12 +187,12 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-24 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_vang[key]} />
+          <input class="input" {title} type="number" pattern="[0-9]*" placeholder="0" bind:value={value_vang[key]} />
         </div>
       {/each}
       <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
         <div class="w-24 input-group-shim">Trong TP</div>
-        <input class="input" type="number" placeholder="0" bind:value={value_vang_tp} />
+        <input class="input" type="number" pattern="[0-9]*" placeholder="0" bind:value={value_vang_tp} />
       </div>
       <div class="mt-2">
         <div>
@@ -205,12 +205,12 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-24 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_go[key]} />
+          <input class="input" {title} type="number" pattern="[0-9]*" placeholder="0" bind:value={value_go[key]} />
         </div>
       {/each}
       <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
         <div class="w-24 input-group-shim">Trong TP</div>
-        <input class="input" type="number" placeholder="0" bind:value={value_go_tp} />
+        <input class="input" type="number" pattern="[0-9]*" placeholder="0" bind:value={value_go_tp} />
       </div>
       <div class="mt-2">
         <div>
@@ -223,12 +223,12 @@
       {#each list_quang as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-24 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_quang[key]} />
+          <input class="input" {title} type="number" pattern="[0-9]*" placeholder="0" bind:value={value_quang[key]} />
         </div>
       {/each}
       <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
         <div class="w-24 input-group-shim">Trong TP</div>
-        <input class="input" type="number" placeholder="0" bind:value={value_quang_tp} />
+        <input class="input" type="number" pattern="[0-9]*" placeholder="0" bind:value={value_quang_tp} />
       </div>
       <div class="mt-2">
         <div>
@@ -241,12 +241,12 @@
       {#each list_nuoc as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-24 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_nuoc[key]} />
+          <input class="input" {title} type="number" pattern="[0-9]*" placeholder="0" bind:value={value_nuoc[key]} />
         </div>
       {/each}
       <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
         <div class="w-24 input-group-shim">Trong TP</div>
-        <input class="input" type="number" placeholder="0" bind:value={value_nuoc_tp} />
+        <input class="input" type="number" pattern="[0-9]*" placeholder="0" bind:value={value_nuoc_tp} />
       </div>
       <div class="mt-2">
         <div>

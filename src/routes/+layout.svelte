@@ -23,7 +23,7 @@
   import "../styles/app.scss";
   import { AppBar, AppShell, TabAnchor, TabGroup } from "@skeletonlabs/skeleton";
   import Fa from "svelte-fa";
-  import { faCaretDown, faCaretUp, faClock, faCoins, faHouse } from "@fortawesome/free-solid-svg-icons";
+  import { faCalculator, faCaretDown, faCaretUp, faClock, faCoins, faHouse } from "@fortawesome/free-solid-svg-icons";
   import { initializeStores, Toast } from "@skeletonlabs/skeleton";
   import { isPlainObject } from "lodash";
 
@@ -53,6 +53,10 @@
       <TabAnchor href="/rss" selected={$page.url.pathname === "/rss/"}>
         <svelte:fragment slot="lead"><Fa icon={faCoins} class="mx-auto" /></svelte:fragment>
         <span>RSS</span>
+      </TabAnchor>
+      <TabAnchor href="/calculator" selected={$page.url.pathname === "/calculator/"}>
+        <svelte:fragment slot="lead"><Fa icon={faCalculator} class="mx-auto" /></svelte:fragment>
+        <span>Buff speed</span>
       </TabAnchor>
     </TabGroup>
   </svelte:fragment>

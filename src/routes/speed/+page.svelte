@@ -186,7 +186,14 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-16 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_building[key]} />
+          <input
+            class="input"
+            {title}
+            type="number"
+            pattern="[0-9]*"
+            placeholder="0"
+            bind:value={value_building[key]}
+          />
         </div>
       {/each}
       <div class="mt-2">
@@ -207,7 +214,14 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-16 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_Training[key]} />
+          <input
+            class="input"
+            {title}
+            type="number"
+            pattern="[0-9]*"
+            placeholder="0"
+            bind:value={value_Training[key]}
+          />
         </div>
       {/each}
       <div class="mt-2">
@@ -228,7 +242,14 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-16 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_Research[key]} />
+          <input
+            class="input"
+            {title}
+            type="number"
+            pattern="[0-9]*"
+            placeholder="0"
+            bind:value={value_Research[key]}
+          />
         </div>
       {/each}
       <div class="mt-2">
@@ -249,13 +270,27 @@
       {#each list as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-16 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_Universal[key]} />
+          <input
+            class="input"
+            {title}
+            type="number"
+            pattern="[0-9]*"
+            placeholder="0"
+            bind:value={value_Universal[key]}
+          />
         </div>
       {/each}
       {#each list_Universal as { title }, key}
         <div class="input-group input-group-divider grid-cols-[auto_1fr_auto] NciCqJg">
           <div class="w-16 input-group-shim">{title}</div>
-          <input class="input" {title} type="number" placeholder="0" bind:value={value_Universal_more[key]} />
+          <input
+            class="input"
+            {title}
+            type="number"
+            pattern="[0-9]*"
+            placeholder="0"
+            bind:value={value_Universal_more[key]}
+          />
         </div>
       {/each}
       <div class="mt-2">
