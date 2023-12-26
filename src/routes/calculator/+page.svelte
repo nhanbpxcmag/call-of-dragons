@@ -33,7 +33,7 @@
 
   $: {
     if (browser) {
-      buff_san = localStorage.getItem(key_storage.buff_san);
+      buff_san = localStorage.getItem(key_storage.buff_san) || 39.8406;
       buff_tru = localStorage.getItem(key_storage.buff_tru);
       help = localStorage.getItem(key_storage.help);
       let temp = getStorage(key_storage.time, ["ngay", "gio", "phut", "giay"]);
